@@ -1,4 +1,5 @@
 <template>
+  <h3>B</h3>
     <el-tree
       :props="props"
       :load="loadNode"
@@ -10,6 +11,13 @@
   
   <script lang="ts" setup>
   import type Node from 'element-plus/es/components/tree/src/model/node'
+// import {getCurrentInstance} from 'vue'
+// const instance  = getCurrentInstance()
+// const Bus = (str:any)=>{
+//   console.log(str,'=========>8')
+// }
+// instance?.proxy?.$Bus.on('on-xm',Bus)
+  //
   let count = 1
   
   interface Tree {
