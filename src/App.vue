@@ -8,6 +8,7 @@
     >
       <div class="box" v-if="show">
         <A></A>
+        <readerDom></readerDom>
       </div>
       <div class="box" v-else><B></B></div>
     </transition>
@@ -17,6 +18,7 @@
 import { onActivated, onDeactivated, ref } from "vue";
 import A from "./components/A.vue";
 import B from "./components/B.vue";
+import readerDom from './App'
 const show = ref<boolean>(true);
 </script>
 <style lang="less" scoped>

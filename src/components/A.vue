@@ -2,7 +2,7 @@
   <div class="content">
     <h3>我是A</h3>
     <button @click="emit">emit</button>
-    <button @click="emitB">emitB</button>
+    <!-- <button @click="emitB">emitB</button> -->
     <button @click="add">add</button><button @click="pop">pop</button>
     <div class="wraps">
       <transition-group
