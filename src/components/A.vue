@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <button @click="emitB">emitB</button>
     <button @click="add">add</button><button @click="pop">pop</button>
     <div class="wraps">
       <transition-group
@@ -12,14 +13,23 @@
   </div>
 </template>
 <script setup lang="ts">
+import { fa } from "element-plus/es/locale";
 import { ref, reactive } from "vue";
+// import Bus from "../Bus";
+let flag = false;
 const list = reactive<number[]>([1, 2, 3, 4, 5, 6]);
-const add = () => {
+let color = "blue";
+let add = () => {
   list.push(list.length + 1);
+  color = "green";
 };
 const pop = () => {
   list.pop();
 };
+// const emitB = () => {
+//   flag = !flag;
+//   Bus.emit("on-click", flag);
+// };
 </script>
 <style lang="less" scoped>
 .wraps {
@@ -28,8 +38,9 @@ const pop = () => {
   word-break: break-all;
   border: 1px solid plum;
 }
-.item{
+.item {
   font-size: 24px;
   font-weight: bold;
+  color: v-bind(color);
 }
 </style>
