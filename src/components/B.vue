@@ -1,73 +1,37 @@
 <template>
-  <h3>B</h3>
-    <el-tree
-      :props="props"
-      :load="loadNode"
-      lazy
-      show-checkbox
-      @check-change="handleCheckChange"
-    />
-  </template>
-  
-  <script lang="ts" setup>
-  import type Node from 'element-plus/es/components/tree/src/model/node'
-// import {getCurrentInstance} from 'vue'
-// const instance  = getCurrentInstance()
-// const Bus = (str:any)=>{
-//   console.log(str,'=========>8')
-// }
-// instance?.proxy?.$Bus.on('on-xm',Bus)
-  //
-  let count = 1
-  
-  interface Tree {
-    name: string
-  }
-  
-  const props = {
-    label: 'name',
-    children: 'zones',
-  }
-  
-  const handleCheckChange = (
-    data: Tree,
-    checked: boolean,
-    indeterminate: boolean
-  ) => {
-    console.log(data, checked, indeterminate)
-  }
-  
-  const loadNode = (node: Node, resolve: (data: Tree[]) => void) => {
-    if (node.level === 0) {
-      return resolve([{ name: 'Root1' }, { name: 'Root2' }])
-    }
-    if (node.level > 3) return resolve([])
-  
-    let hasChild = false
-    if (node.data.name === 'region1') {
-      hasChild = true
-    } else if (node.data.name === 'region2') {
-      hasChild = false
-    } else {
-      hasChild = Math.random() > 0.5
-    }
-  
-    setTimeout(() => {
-      let data: Tree[] = []
-      if (hasChild) {
-        data = [
-          {
-            name: `zone${count++}`,
-          },
-          {
-            name: `zone${count++}`,
-          },
-        ]
-      } else {
-        data = []
-      }
-  
-      resolve(data)
-    }, 500)
-  }
-  </script>
+  <h3>B</h3> 
+  <div v-move class="box">text</div>
+</template>
+
+<script lang="ts" setup>
+import { ref, Directive, DirectiveBinding } from "vue";
+const vMove: Directive<any, void> = (
+  el: HTMLElement,
+  bingding: DirectiveBinding
+) => {
+  let moveElement: HTMLDivElement = el.firstElementChild as HTMLDivElement;
+  console.log(moveElement);
+  const mousedown = (e:MouseEvent) => {
+    let X = e.clientX - el.offsetLeft
+    let Y = e.clientY - el.offsetTop
+    const move = (e: MouseEvent) => {
+      console.log(e);
+      el.style.left = e.clientX - X + "px";
+      el.style.top = e.clientY - Y + "px";
+    };
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", () => {
+      document.removeEventListener("mousemove", move);
+    });
+  };
+  moveElement.addEventListener("mousedown", mousedown);
+};
+</script>
+<style lang="less" scoped>
+.box{
+  width: 200px;
+  height: 200px;
+  color: aliceblue;
+  background-color: black;
+}
+</style>
