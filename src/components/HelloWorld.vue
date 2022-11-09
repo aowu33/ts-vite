@@ -1,6 +1,6 @@
 <template>
   <button >修改</button>
-  <compontent :is="A"></compontent>
+  
 </template>
 <script setup lang="ts">
 import { customRef, ref, shallowRef, triggerRef } from "vue";
