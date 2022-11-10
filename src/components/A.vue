@@ -16,7 +16,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { fa } from "element-plus/es/locale";
 import { ref, reactive, getCurrentInstance } from "vue";
 // import Bus from "../Bus";
 let flag = false;

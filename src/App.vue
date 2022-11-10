@@ -10,7 +10,9 @@
         <A></A>
         <readerDom></readerDom>
       </div>
-      <div class="box" v-else><B></B></div>
+      <div class="box" v-else>
+        <B></B>
+      </div>
     </transition>
   </div>
 </template>
@@ -20,12 +22,19 @@ import A from "./components/A.vue";
 import B from "./components/B.vue";
 import readerDom from './App'
 const show = ref<boolean>(true);
+
+
 </script>
 <style lang="less" scoped>
 .box {
   width: 500px;
   height: 200px;
   overflow: hidden;
+}
+.wrap {
+  width: 200px;
+  height: 200px;
+  background-color: #f9f9f9;
 }
 .fade-enter-from {
   width: 0;
