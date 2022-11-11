@@ -4,4 +4,5 @@ import App from './App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'animate.css' 
-createApp(App).use(ElementPlus).mount('#app')
+import vMove from './u/index'
+createApp(App).use(ElementPlus).use(vMove).mount('#app')

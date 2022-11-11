@@ -1,27 +1,23 @@
+<script setup>
+import { reactive, computed } from 'vue'
+
+const author = reactive({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
+})
+
+// a computed ref
+const publishedBooksMessage = computed(() => {
+  return author.books.length > 0 ? 'Yes' : 'No'
+})
+</script>
+
 <template>
-  <button >修改</button>
+  <p>Has published books:</p>
+  <span>{{ publishedBooksMessage }}</span>
   
 </template>
-<script setup lang="ts">
-import { customRef, ref, shallowRef, triggerRef } from "vue";
-function MyRef<T>(value: T) {
-  return customRef((track, trigger) => {
-    return {
-      get() {
-        track();
-        return value;
-      },
-      set(newVal) {
-        value = newVal;
-        trigger();
-      },
-    };
-  });
-}
-const count = ref(0);
-</script>
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
