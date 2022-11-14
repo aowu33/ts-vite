@@ -1,51 +1,45 @@
 <template>
-  <div>
-    <el-button @click="show = !show">change</el-button>
-   <div class="hbox" v-move>
+  <el-button @click="show = !show">change</el-button>
+  <div class="hbox" v-move>
     <div class="header">header</div>
-    <HelloWorld ></HelloWorld>
-   </div>
-    <!-- -->
-    <transition
-     leave-active-class="animate__animated animate__bounce"
-      enter-active-class="animate__animated animate__faster" 
-    >
-      <div class="box" v-if="show">
-        <A></A>
-        <readerDom></readerDom>
-      </div>
-      <div class="box" v-else>
-        <B></B>
-      </div>
-      
-    </transition>
+    <HelloWorld></HelloWorld>
   </div>
+  <transition
+    leave-active-class="animate__animated animate__bounce"
+    enter-active-class="animate__animated animate__faster"
+  >
+    <div class="box" v-if="show">
+      <A></A>
+      <readerDom></readerDom>
+    </div>
+    <div class="box" v-else>
+      <B></B>
+    </div>
+  </transition>
 </template>
 <script setup lang="ts">
 import { onActivated, onDeactivated, ref } from "vue";
 import A from "./components/A.vue";
 import B from "./components/B.vue";
 import HelloWorld from "./components/HelloWorld.vue";
-import readerDom from './App'
-import vMove from './u/index'
+import readerDom from "./App";
+import vMove from "./u";
 const show = ref<boolean>(true);
-
-
 </script>
 <style lang="less">
-body,html{
-  color:rgb(17, 118, 165);
-  background-color:#032b30
-  
+body,
+html {
+  color: rgb(17, 118, 165);
+  background-color: #032b30;
 }
-.hbox{
-  width:200px;
-  height:200px;
-  background-color:#0890a1;
+.hbox {
+  width: 200px;
+  height: 200px;
+  background-color: #30c1d4;
   position: absolute;
-  .header{
-    height:20px;
-    background-color:#000
+  .header {
+    height: 20px;
+    background-color: #000;
   }
 }
 .box {

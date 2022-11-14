@@ -1,23 +1,19 @@
-<script setup>
-import { reactive, computed } from 'vue'
-
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-
-// a computed ref
-const publishedBooksMessage = computed(() => {
-  return author.books.length > 0 ? 'Yes' : 'No'
-})
-</script>
-
 <template>
-  <p>Has published books:</p>
-  <span>{{ publishedBooksMessage }}</span>
-  
+  <input type="text" v-model="value" />
+  <div v-color="{ background: value }">输入颜色</div>
+  <p>{{$filters.format('喵喵')}}</p>
 </template>
+
+
+
+<script lang="ts" setup>
+import { reactive, computed, ref ,Directive, DirectiveBinding} from "vue";
+
+const value = ref<string>("");
+type Dir = {
+  background: string;
+};
+const vColor:Directive = (el:HTMLElement,bingding:DirectiveBinding<Dir>)=>{
+  el.style.background = bingding.value.background
+};
+</script>
