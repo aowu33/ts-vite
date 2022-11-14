@@ -1,6 +1,6 @@
 <template>
   <el-button @click="show = !show">change</el-button>
-  <div class="hbox" v-move>
+  <div class="hbox " v-move>
     <div class="header">header</div>
     <HelloWorld></HelloWorld>
   </div>

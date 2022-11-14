@@ -5,6 +5,7 @@ import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import "animate.css";
 import Loading from "./components/Loading";
+// import './index.css'//
 // import vMove from './u/index'
 const app = createApp(App);
 type Filter = {
@@ -20,5 +21,5 @@ app.config.globalProperties.$filters = {
     return `可爱的${str}`;
   },
 };
-app.use(Loading)
+// app.use(Loading)
 app.use(ElementPlus).mount("#app");
