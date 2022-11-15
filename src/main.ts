@@ -7,6 +7,8 @@ import "animate.css";
 import Loading from "./components/Loading";
 // import './index.css'//
 // import vMove from './u/index'
+import {createPinia} from 'pinia'
+const store = createPinia()
 const app = createApp(App);
 type Filter = {
   format: <T>(str: T) => string;
@@ -22,4 +24,6 @@ app.config.globalProperties.$filters = {
   },
 };
 // app.use(Loading)
-app.use(ElementPlus).mount("#app");
+app.use(ElementPlus)
+.use(store)
+.mount("#app");
