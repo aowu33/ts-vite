@@ -34,7 +34,7 @@ const pop = () => {
 // };
 const instance = getCurrentInstance()
 const emit = () => {
-  instance?.proxy?.$Bus.emit('on-xm','mitt')
+  // instance?.proxy?.$Bus.emit('on-xm','mitt')
 }
 </script>
 <style lang="less" scoped>
