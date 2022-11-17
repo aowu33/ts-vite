@@ -49,7 +49,9 @@ const Base = userStoreBase()
 const { current, name } = storeToRefs(Test);
 const {BASEcurrent,BASEname}=storeToRefs(Base)
 
+
 const Add = () => {
+  
   // 1、
   // Test.$patch(//批量修改State的值
   //   //2、

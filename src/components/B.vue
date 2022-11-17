@@ -4,10 +4,8 @@
     <div class="header">header</div>
     text</div>
 </template>
-
 <script lang="ts" setup>
 import { ref, Directive, DirectiveBinding } from "vue";
-
 const vMove:Directive = {
   mounted: (el: HTMLElement) => {
     const mouseDown = (e: MouseEvent) => {
