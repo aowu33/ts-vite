@@ -1,3 +1,6 @@
+import mitt from 'mitt'
+const emitter = mitt()
+export default emitter
 // type BusClass = {
 //   emit: (name: string) => void;
 //   on: (name: string, callback: Function) => void;

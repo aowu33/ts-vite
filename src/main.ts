@@ -8,6 +8,7 @@ import Loading from "./components/Loading";
 // import './index.css'//
 // import vMove from './u/index'
 import { createPinia, PiniaPluginContext } from "pinia";
+import mitt from 'mitt'
 const store = createPinia();
 const app = createApp(App);
 const __piniaKey = "one"; //定义兜底变量
@@ -65,4 +66,6 @@ app.config.globalProperties.$filters = {
   },
 };
 // app.use(Loading)
+
+app.config.globalProperties.Bus = mitt()
 app.use(ElementPlus).use(store).mount("#app");

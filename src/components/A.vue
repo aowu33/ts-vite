@@ -10,6 +10,7 @@
         leave-active-class="animate__animated animate__backOutDown"
       >
         <div class="item" v-for="item in list" :key="item">{{ item }}</div>
+        <C/>
       </transition-group>
     </div>
     
@@ -17,7 +18,8 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive, getCurrentInstance } from "vue";
-// import Bus from "../Bus";
+import mitter from "../u/Bus";
+import C from "./C.vue"
 let flag = false;
 const list = reactive<number[]>([1, 2, 3, 4, 5, 6]);
 let color = "blue";
@@ -30,7 +32,7 @@ const pop = () => {
 };
 // const emitB = () => {
 //   flag = !flag;
-//   Bus.emit("on-click", flag);
+  // Bus.emit("on-click", flag);
 // };
 const instance = getCurrentInstance()
 const emit = () => {
