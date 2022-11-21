@@ -63,7 +63,7 @@ declare module "@vue/runtime-core" {
 app.config.globalProperties.$filters = {
   format<T>(str: T): string {
     return `可爱的${str}`;
-  }, 
+  },
 };
 // app.use(Loading)
 

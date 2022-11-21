@@ -32,6 +32,7 @@
       <B></B>
     </div>
   </transition>
+  <Tree></Tree>
 </template>
 <script setup lang="ts">
 import { onActivated, onDeactivated, ref } from "vue";
@@ -43,6 +44,7 @@ import vMove from "./u";
 // Pinia
 import { useTestStore,userStoreBase } from "./store";
 import { storeToRefs  } from "pinia";
+import Tree from './components/Tree.vue'
 const show = ref<boolean>(true);
 const Test = useTestStore();
 const Base = userStoreBase()
