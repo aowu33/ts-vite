@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import nameMaps from './nameMaps'
+import nameMaps from './maps'
 const routes = [
   {
-    path: "/login",
-    name: nameMaps.Login,
+    path: "/equipment",
+    name: nameMaps.Equipment,
     component: () =>
-      import(/* webpackChunkName: "login" */ "@/views/login/index.vue"),
+      import(/* webpackChunkName: "login" */ "../views/index.vue"),
   },
 ];
 const router = createRouter({

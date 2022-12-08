@@ -2,8 +2,7 @@
   <div class="common-layout">
     <el-container>
       <el-aside width="200px">
-        <el-header>Header</el-header>
-        Aside
+        <Aside/>
       </el-aside>
       <el-container>
         <el-header>Header</el-header>
@@ -13,7 +12,9 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Aside from'./saide.vue'
+</script>
 
 <style lang="less">
 .common-layout {
@@ -28,13 +29,12 @@
       height: 100vh;
       color: #efefef;
       background-color: rgb(25, 35, 48);
-      .el-header{
-        background-color: rgb(42, 64, 87)
-      }
     }
     .el-container {
       background-color: #efefef;
       .el-header {
+        line-height: 60px;
+        text-align: left;
         background-color: rgb(204, 215, 226);
       }
       .el-main {
