@@ -1,19 +1,22 @@
 <template>
-  <h3 @click="clickMenu">{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
-  <!-- <el-menu background-color="#fff" text-color="#efefef">
-    <el-sub-menu
+  <h3 @click="clickMenu">{{ isCollapse ? "管理" : "通用后台管理" }}</h3>
+  <el-menu background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+    <el-menu-item
       @click="clickMenu(item)"
-      v-for="item in noChildren"
+      v-for="item in fullName2"
       :key="item.name"
       :index="item.name"
     >
-      000
-    </el-sub-menu> -->
-  <!-- </el-menu> -->
+    <i :class="`el-icon-${item.icon}`"></i>
+        <span>{{ item.label }}</span>
+    </el-menu-item>
+  </el-menu>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import router from "../router/index.js";
 const isCollapse = ref(true);
 const menuData = [
@@ -61,13 +64,17 @@ const menuData = [
 ];
 //点击菜单
 function clickMenu(item: any) {
-  return router.push('/equipment');
+  return router.push("/equipment");
 }
-function noChildren() {
-  console.log(menuData.filter((item: any) => !item.children));
-  
-  return menuData.filter((item: any) => !item.children);
-}
+// function noChildren() {
+//   return menuData.filter((item: any) => !item.children);
+// }
+let fullName2 = computed({
+  get() {
+      return menuData.filter((item: any) => !item.children);
+  },
+  set(newVal) {},
+});
 </script>
 
 <style lang="less" scoped></style>
