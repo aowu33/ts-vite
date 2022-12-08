@@ -19,8 +19,8 @@ import router from "../router/index.js";
 const isCollapse = ref(true);
 const menuData:Array<any> = [
   {
-    path: "/",
-    name: "home",
+    path: "/equipment",
+    name: "Equipment",
     label: "首页",
     icon: "s-home",
     url: "Home/Home",
@@ -62,7 +62,7 @@ const menuData:Array<any> = [
 ]
 //点击菜单
 function clickMenu(item: any) {
-  return router.push('/equipment');
+  return router.push(item.path);
 }
 function noChildren():any[] {
   return menuData.filter((item: any) => !item.children) ;
