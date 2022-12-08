@@ -1,15 +1,20 @@
 <template>
-  <h3 @click="clickMenu">{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
-  <el-menu background-color="" text-color="">
-    <!-- <el-sub-menu @click="clickMenu(item)" v-for="item in noChildren" :key="item.name" :index="item.name">
-      000
-    </el-sub-menu> -->
-    
-      <el-menu-item v-for="item in noChildren()" >{{item.name}}</el-menu-item>
-      <el-sub-menu v-for="item in hasChildren()">
-          <template #title> {{item.label}}</template>
-          <el-menu-item v-for="MenuItem in item.children">{{MenuItem.name}}</el-menu-item>
-      </el-sub-menu>
+  <h3>{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
+  <el-menu
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    :collapse="isCollapse"
+  >
+    <el-menu-item v-for="item in noChildren()" @click="clickMenu(item)">{{
+      item.name
+    }}</el-menu-item>
+    <el-sub-menu v-for="item in hasChildren()" @click="clickMenu(item)">
+      <template #title> {{ item.label }}</template>
+      <el-menu-item v-for="MenuItem in item.children">{{
+        MenuItem.name
+      }}</el-menu-item>
+    </el-sub-menu>
   </el-menu>
 </template>
 
@@ -17,7 +22,7 @@
 import { ref } from "vue";
 import router from "../router/index.js";
 const isCollapse = ref(true);
-const menuData:Array<any> = [
+const menuData: Array<any> = [
   {
     path: "/equipment",
     name: "Equipment",
@@ -42,7 +47,7 @@ const menuData:Array<any> = [
   {
     label: "其他",
     icon: "location",
-    children:[
+    children: [
       {
         path: "/page1",
         name: "page1",
@@ -59,21 +64,17 @@ const menuData:Array<any> = [
       },
     ],
   },
-]
+];
 //点击菜单
 function clickMenu(item: any) {
   return router.push(item.path);
 }
-function noChildren():any[] {
-  return menuData.filter((item: any) => !item.children) ;
+function noChildren(): any[] {
+  return menuData.filter((item: any) => !item.children);
 }
-function hasChildren():any[] {
-    return menuData.filter((item: any) =>item?.children?.length > 0) ;
+function hasChildren(): any[] {
+  return menuData.filter((item: any) => item?.children?.length > 0);
 }
-
-
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
