@@ -1,5 +1,5 @@
 <template>
-  <div ref="el10" :style="style" style="position: fixed">
+  <div ref="el10" class="tit" :style="style" style="position: fixed">
     Drag me! I am at {{ x }}, {{ y }}
   </div>
 
@@ -33,6 +33,11 @@ console.log("Sum",Sum.value,"Min",Min.value,"Max",Max.value,"result",result.valu
 // `style` will be a helper computed for `left: ?px; top: ?px;`
 const el10 = ref<HTMLElement | null>(null);
 const { x, y, style } = useDraggable(el10, {
-  initialValue: { x: 40, y: 40 },
+  initialValue: { x: 10, y: 20 },
 });
 </script>
+<style>
+  .tit{
+    cursor: pointer;
+  }
+</style>
