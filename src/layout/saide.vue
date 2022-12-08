@@ -1,22 +1,23 @@
 <template>
   <h3 @click="clickMenu">{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
-  <!-- <el-menu background-color="#fff" text-color="#efefef">
-    <el-sub-menu
-      @click="clickMenu(item)"
-      v-for="item in noChildren"
-      :key="item.name"
-      :index="item.name"
-    >
+  <el-menu background-color="" text-color="">
+    <!-- <el-sub-menu @click="clickMenu(item)" v-for="item in noChildren" :key="item.name" :index="item.name">
       000
     </el-sub-menu> -->
-  <!-- </el-menu> -->
+    
+      <el-menu-item v-for="item in noChildren()" >{{item.name}}</el-menu-item>
+      <el-sub-menu v-for="item in hasChildren()">
+          <template #title> {{item.label}}</template>
+          <el-menu-item v-for="MenuItem in item.children">{{MenuItem.name}}</el-menu-item>
+      </el-sub-menu>
+  </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
 import router from "../router/index.js";
 const isCollapse = ref(true);
-const menuData = [
+const menuData:Array<any> = [
   {
     path: "/",
     name: "home",
@@ -41,7 +42,7 @@ const menuData = [
   {
     label: "其他",
     icon: "location",
-    children: [
+    children:[
       {
         path: "/page1",
         name: "page1",
@@ -58,16 +59,21 @@ const menuData = [
       },
     ],
   },
-];
+]
 //点击菜单
 function clickMenu(item: any) {
   return router.push('/equipment');
 }
-function noChildren() {
-  console.log(menuData.filter((item: any) => !item.children));
-  
-  return menuData.filter((item: any) => !item.children);
+function noChildren():any[] {
+  return menuData.filter((item: any) => !item.children) ;
 }
+function hasChildren():any[] {
+    return menuData.filter((item: any) =>item?.children?.length > 0) ;
+}
+
+
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+
+</style>
