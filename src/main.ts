@@ -10,8 +10,14 @@ import Loading from "./components/Loading";
 import { createPinia, PiniaPluginContext } from "pinia";
 import mitt from 'mitt'
 import router from './router';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+
 const store = createPinia();
 const app = createApp(App);
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
 const __piniaKey = "one"; //定义兜底变量
 
 type Options = {

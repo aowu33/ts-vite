@@ -1,19 +1,24 @@
 <template>
   <h3>{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
   <el-menu
-    background-color="#545c64"
+    background-color="transparent"
     text-color="#fff"
     active-text-color="#ffd04b"
     :collapse="isCollapse"
   >
-    <el-menu-item v-for="item in noChildren()" @click="clickMenu(item)">{{
-      item.name
-    }}</el-menu-item>
+    <el-menu-item v-for="item in noChildren()" @click="clickMenu(item)">
+      <el-icon><Search /></el-icon>
+      {{ item.name }}
+    </el-menu-item>
     <el-sub-menu v-for="item in hasChildren()" @click="clickMenu(item)">
-      <template #title> {{ item.label }}</template>
-      <el-menu-item v-for="MenuItem in item.children">{{
-        MenuItem.name
-      }}</el-menu-item>
+      <template #title>
+        <el-icon><Search /></el-icon>
+        {{ item.label }}
+      </template>
+      <el-menu-item v-for="MenuItem in item.children">
+        <el-icon><Search /></el-icon>
+        {{ MenuItem.name }}
+      </el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>
@@ -21,7 +26,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import router from "../router/index.js";
-const isCollapse = ref(true);
+const isCollapse = ref(false);
 const menuData: Array<any> = [
   {
     path: "/equipment",
