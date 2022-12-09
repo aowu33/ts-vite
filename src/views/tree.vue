@@ -4,7 +4,7 @@
     :props="defaultProps"
     highlight-current
     @node-click="handleNodeClick"
-    current-node-key="key"
+    ref="myTree"
     node-key="id"
     default-expand-all
   >
@@ -14,11 +14,12 @@
       </div>
     </template>
   </el-tree>
+  <input ref="input"/>
   <button @click="key">click</button>
 </template>
 
 <script lang="ts" setup>
-import {ref,nextTick} from 'vue';
+import {ref,nextTick,onMounted} from 'vue';
 interface Tree {
     id: number|string|null
   label: string;
@@ -47,15 +48,19 @@ const defaultProps = {
   label: "label",
 };
 const handleNodeClick = (node:any) => {
-  console.log(data);
-  nodeKey = node.id
-  console.log(node,'nodeid');
-  
+  nodeKey = ref(node.id)
 };
 let nodeKey = ref('');
+const myTree:any = ref(null)
+const input:any = ref(null)
 function key() {
-    nodeKey = ref(String(3))
+    myTree.value.setCurrentKey('2')
+    input.value.focus()
 }
+
+onMounted(() => {
+    
+})
 </script>
 
 <style>
