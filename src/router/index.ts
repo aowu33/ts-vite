@@ -5,7 +5,13 @@ const routes = [
     path: "/equipment",
     name: nameMaps.Equipment,
     component: () =>
-      import(/* webpackChunkName: "login" */ "../views/index.vue"),
+      import(/* webpackChunkName: "equipment" */ "../views/index.vue"),
+  },
+  {
+    path: "/equipmentTree",
+    name: nameMaps.EquipmentTree,
+    component: () =>
+      import(/* webpackChunkName: "tree" */ "../views/tree.vue"),
   },
 ];
 const router = createRouter({

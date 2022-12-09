@@ -5,7 +5,7 @@
  const nameMaps: StringJson = {
     Login: 'Login',
     Equipment: 'Equipment',
-    EquipmentInfo: 'EquipmentInfo',
+    EquipmentInfo: 'EquipmentTree',
     EquipmentInfoList: 'EquipmentInfoList',
     EquipmentInfoDetail: 'EquipmentInfoDetail',
     EquipmentClass: 'EquipmentClass',

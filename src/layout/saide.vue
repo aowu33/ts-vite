@@ -36,9 +36,9 @@ const menuData: Array<any> = [
     url: "Home/Home",
   },
   {
-    path: "mall",
-    name: "mall",
-    label: "商品管理",
+    path: "equipmentTree",
+    name: "EquipmentTree",
+    label: "管理树",
     icon: "video-play",
     url: "UserManage/UserManage",
   },
