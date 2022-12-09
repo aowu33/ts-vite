@@ -47,17 +47,22 @@ const defaultProps = {
   children: "children",
   label: "label",
 };
-const handleNodeClick = (node:any) => {
-  nodeKey = ref(node.id)
-};
+
 let nodeKey = ref('');
 const myTree:any = ref(null)
 const input:any = ref(null)
 function key() {
-    myTree.value.setCurrentKey('2')
+    console.log(nodeKey.value);
+    nextTick(()=>{ 
+       myTree.value.setCurrentKey(nodeKey.value) 
+    })
     input.value.focus()
 }
+const handleNodeClick = (node:any) => {
+  nodeKey = ref(String(node.id))
+console.log(nodeKey.value);
 
+};
 onMounted(() => {
     
 })
