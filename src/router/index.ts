@@ -20,18 +20,18 @@ const routes = [
       import(/* webpackChunkName: "equipmentUser" */ "../views/user/index.vue"),
   },
   {
-    path: "",
-    redirect: "/page1",
+    path: "/equipmentOther",
+    redirect: "/equipmentOther/page1",
     name: nameMaps.EquipmentOther,
     children: [
       {
-        path: "page1",
+        path: "/equipmentOther/page1",
         name: nameMaps.EquipmentPage1,
         component: () =>
           import(/* webpackChunkName: "page1" */ "../views/other/page1.vue"),
       },
       {
-        path: "page2",
+        path: "/equipmentOther/page2",
         name: nameMaps.EquipmentPage2,
         component: () =>
           import(/* webpackChunkName: "page2" */ "../views/other/page2.vue"),
