@@ -11,7 +11,7 @@
   <!--  -->
     <template #default="{ node, data }">
       <div class="custom-tree-node" slot-scope="{ node, data }">
-        <div class="wt100" @click="strLength(node.label)" :title="node.label">
+        <div class="wt100" @click="strLength(node.label)" :title="strLength(node.label)>20?node.label:''">
           {{ node.label }}
         </div>
       </div>
