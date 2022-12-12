@@ -17,7 +17,6 @@
     <el-sub-menu
       :index="item.name"
       v-for="item in hasChildren()"
-      @click="clickMenu(item)"
     >
       <template #title>
         <component :is="item.icon" />
@@ -59,22 +58,21 @@ const menuData: Array<any> = [
     icon: "user",
   },
   {
-    path: "/equipmentOther",
     label: "其他",
-    name: "EquipmentOther",
     icon: "Suitcase",
     children: [
       {
-        path: "page1",
+        path: "/page1",
         name: "EquipmentPage1",
         label: "页面1",
         icon: "Postcard",
       },
       {
-        path: "page2",
+        path: "/page2",
         name: "EquipmentPage2",
         label: "页面2",
         icon: "Postcard",
+
       },
     ],
   },
