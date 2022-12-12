@@ -1,32 +1,16 @@
 <template>
   <h3>{{ isCollapse ? "后台" : "通用后台管理" }}</h3>
-  <el-menu
-    background-color="transparent"
-    text-color="#fff"
-    active-text-color="#ffd04b"
-    :collapse="isCollapse"
-  >
-    <el-menu-item
-      :index="item.name"
-      v-for="item in noChildren()"
-      @click="clickMenu(item)"
-    >
+  <el-menu background-color="transparent" text-color="#fff" active-text-color="#ffd04b" router>
+    <el-menu-item :index="item.path" v-for="item in noChildren()" >
       <component :is="item.icon" />
       {{ item.label }}
     </el-menu-item>
-    <el-sub-menu
-      :index="item.name"
-      v-for="item in hasChildren()"
-    >
+    <el-sub-menu collapse :index="item.path" v-for="item in hasChildren()">
       <template #title>
         <component :is="item.icon" />
         {{ item.label }}
       </template>
-      <el-menu-item
-        :index="MenuItem.name"
-        v-for="MenuItem in item.children"
-        @click="clickMenu(MenuItem)"
-      >
+      <el-menu-item :index="MenuItem.path" v-for="MenuItem in item.children" >
         <component :is="MenuItem.icon" />
         {{ MenuItem.label }}
       </el-menu-item>
@@ -36,11 +20,13 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import router from "../router/index.js";
+import {useRouter, useRoute} from "vue-router";
+const router = useRouter()
+const route = useRoute()
 const isCollapse = ref(false);
 const menuData: Array<any> = [
   {
-    path: "/equipment",
+    path: "/",
     name: "Equipment",
     label: "首页",
     icon: "Notification",
@@ -58,6 +44,7 @@ const menuData: Array<any> = [
     icon: "user",
   },
   {
+    path:"/other",
     label: "其他",
     icon: "Suitcase",
     children: [
@@ -72,22 +59,16 @@ const menuData: Array<any> = [
         name: "EquipmentPage2",
         label: "页面2",
         icon: "Postcard",
-
       },
     ],
   },
 ];
-//点击菜单
-function clickMenu(item: any) {
-  console.log(item.path);
-  
-  return router.push(item.path);
-}
+
 function noChildren(): any[] {
   return menuData.filter((item: any) => !item.children);
 }
 function hasChildren(): any[] {
-  return menuData.filter((item: any) => item?.children?.length > 0);
+  return menuData.filter((item: any) => item?.children?.length );
 }
 </script>
 
@@ -95,6 +76,7 @@ function hasChildren(): any[] {
 .el-menu {
   border-right: 0;
 }
+
 svg {
   width: 20px;
   height: 20px;
