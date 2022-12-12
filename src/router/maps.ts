@@ -5,12 +5,12 @@
  const nameMaps: StringJson = {
     Login: 'Login',
     Equipment: 'Equipment',
-    EquipmentInfo: 'EquipmentTree',
-    EquipmentInfoList: 'EquipmentInfoList',
-    EquipmentInfoDetail: 'EquipmentInfoDetail',
-    EquipmentClass: 'EquipmentClass',
-    EquipmentClassIndex: 'EquipmentClassIndex',
-    EquipmentClasseditDetails: 'EquipmentClasseditDetails'
+    EquipmentTree: 'EquipmentTree',
+    EquipmentUser: 'EquipmentUser',
+    EquipmentOther: 'EquipmentOther',
+    EquipmentPage1: 'EquipmentPage1',
+    EquipmentPage2: 'EquipmentPage2',
+    // EquipmentClasseditDetails: 'EquipmentClasseditDetails'
   }
   
   type StringJson = {

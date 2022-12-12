@@ -3,14 +3,15 @@ import "./style.css";
 import App from "./App.vue";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import "animate.css";
-import Loading from "./components/Loading";
+// import Loading from "./components/Loading";
 // import './index.css'//
 // import vMove from './u/index'
 import { createPinia, PiniaPluginContext } from "pinia";
 import mitt from 'mitt'
 import router from './router';
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
 
 
 const store = createPinia();

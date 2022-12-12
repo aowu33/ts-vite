@@ -6,18 +6,30 @@
     active-text-color="#ffd04b"
     :collapse="isCollapse"
   >
-    <el-menu-item v-for="item in noChildren()" @click="clickMenu(item)">
-      <el-icon><Search /></el-icon>
-      {{ item.name }}
+    <el-menu-item
+      :index="item.name"
+      v-for="item in noChildren()"
+      @click="clickMenu(item)"
+    >
+      <component :is="item.icon" />
+      {{ item.label }}
     </el-menu-item>
-    <el-sub-menu v-for="item in hasChildren()" @click="clickMenu(item)">
+    <el-sub-menu
+      :index="item.name"
+      v-for="item in hasChildren()"
+      @click="clickMenu(item)"
+    >
       <template #title>
-        <el-icon><Search /></el-icon>
+        <component :is="item.icon" />
         {{ item.label }}
       </template>
-      <el-menu-item v-for="MenuItem in item.children">
-        <el-icon><Search /></el-icon>
-        {{ MenuItem.name }}
+      <el-menu-item
+        :index="MenuItem.name"
+        v-for="MenuItem in item.children"
+        @click="clickMenu(MenuItem)"
+      >
+        <component :is="MenuItem.icon" />
+        {{ MenuItem.label }}
       </el-menu-item>
     </el-sub-menu>
   </el-menu>
@@ -32,39 +44,41 @@ const menuData: Array<any> = [
     path: "/equipment",
     name: "Equipment",
     label: "首页",
-    icon: "s-home",
+    icon: "Notification",
     url: "Home/Home",
   },
   {
-    path: "equipmentTree",
+    path: "/equipmentTree",
     name: "EquipmentTree",
     label: "管理树",
-    icon: "video-play",
+    icon: "Connection",
     url: "UserManage/UserManage",
   },
   {
-    path: "user",
-    name: "user",
+    path: "/equipmentUser",
+    name: "EquipmentUser",
     label: "用户管理",
     icon: "user",
     url: "UserManage/UserManage",
   },
   {
+    path: "/equipmentOther",
     label: "其他",
-    icon: "location",
+    name: "EquipmentOther",
+    icon: "Suitcase",
     children: [
       {
-        path: "/page1",
-        name: "page1",
+        path: "page1",
+        name: "EquipmentPage1",
         label: "页面1",
-        icon: "setting",
+        icon: "Postcard",
         url: "Other/PageOne",
       },
       {
-        path: "/page2",
-        name: "page2",
+        path: "page2",
+        name: "EquipmentPage2",
         label: "页面2",
-        icon: "setting",
+        icon: "Postcard",
         url: "Other/PageTwo",
       },
     ],
@@ -72,6 +86,8 @@ const menuData: Array<any> = [
 ];
 //点击菜单
 function clickMenu(item: any) {
+  console.log(item.path);
+  
   return router.push(item.path);
 }
 function noChildren(): any[] {
@@ -82,4 +98,13 @@ function hasChildren(): any[] {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-menu {
+  border-right: 0;
+}
+svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+</style>
