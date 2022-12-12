@@ -1,3 +1,4 @@
+
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 import nameMaps from "./maps"
 import { ElMessageBox } from 'element-plus'
@@ -50,6 +51,8 @@ const routes:Array<RouteRecordRaw> = [
 		component: () => import("../views/other/page2.vue"),
 	},
 ]
+
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes,

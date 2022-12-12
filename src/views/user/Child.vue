@@ -1,6 +1,6 @@
-<template>
+<template >
   <el-space wrap>
-    <el-card v-for="i in 5" :key="i" class="box-card" style="width: 250px">
+    <el-card v-for="i in 1" :key="i" class="box-card" style="width: 250px">
       <template #header>
         <div class="card-header">
           <span>Card name{{i}}</span>
