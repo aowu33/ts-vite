@@ -127,7 +127,7 @@ const table:[] = [];
 
 const nodeclick= (val, node) => {
   id = val.id;
-  console.log(val);
+  
 //   for (let item in tableData) {
 //     if (id = tableData[item].id) {
 //        table.push(tableData[item])

@@ -39,10 +39,10 @@ const getStorage = (key: string) => {
 const piniaPlugin = (options: Options) => {
   return (context: PiniaPluginContext) => {
     const { store } = context;
-    console.log("context", store);
+    
 
     const data = getStorage(`${options?.key ?? __piniaKey}-${store.$id}`);
-    console.log(data);
+    
     store.$subscribe(() => {
       // console.log("change");
       setStorage(

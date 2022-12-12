@@ -34,6 +34,6 @@ export const strLength = (str: any) => {
       len += 2;
     }
   }
-  console.log("长度:", len);
+  
   return len;
 };

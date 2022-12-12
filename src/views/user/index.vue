@@ -5,7 +5,7 @@ import Child from './Child.vue'
 const child = ref(null)
 
 onMounted(() => {
-  console.log(child.value)
+  
 })
 </script>
 

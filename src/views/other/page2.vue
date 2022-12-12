@@ -1,5 +1,5 @@
 <template>
-<div>page2</div>
+    <div>田小薇你个虎逼</div>
 </template>
 
 <script setup lang="ts">

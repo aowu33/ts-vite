@@ -16,7 +16,7 @@ let arr = [
 ]
 
 const {0:{num}} = arr //0:1  1:2  2:3 
-console.log(num)//1
+
 
 
 let arr2 = [1,2,3,4]
@@ -26,7 +26,7 @@ const Max = useMax(arr2)
 const value = ref(3.1415)
 const result = usePrecision(value, 2)
 
-console.log("Sum",Sum.value,"Min",Min.value,"Max",Max.value,"result",result.value)
+
 
 
 
