@@ -8,10 +8,14 @@
     node-key="id"
     default-expand-all
   >
-  <!--  -->
+    <!--  -->
     <template #default="{ node, data }">
       <div class="custom-tree-node" slot-scope="{ node, data }">
-        <div class="wt100" @click="strLength(node.label)" :title="strLength(node.label)>20?node.label:''">
+        <div
+          class="wt100"
+          @click="strLength(node.label)"
+          :title="strLength(node.label) > 28 ? node.label : ''"
+        >
           {{ node.label }}
         </div>
       </div>
@@ -23,6 +27,7 @@
 
 <script lang="ts" setup>
 import { ref, nextTick, onMounted } from "vue";
+import { strLength } from "../../u/index";
 interface Tree {
   id: number | string | null;
   label: string;
@@ -39,7 +44,7 @@ const data: Tree[] = [
         children: [
           {
             id: "2",
-            label: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
+            label: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
           },
           {
             id: "3",
@@ -65,26 +70,13 @@ function key() {
   input.value.focus();
 }
 const handleNodeClick = (node: any) => {
-  nodeKey = ref('3');
+  nodeKey = ref("3");
 };
-function strLength(str: any) {
-  let len = 0;
-  for (let i = 0; i < str.length; i++) {
-    let c = str.charAt(i);
-    if (/^[\u0000-\u00ffA-Za-z1-9]+$/.test(c)) {
-      len += 1;
-    } else {
-      len += 2;
-    }
-  }
-  console.log('长度:',len);
-  return len;
-}
 onMounted(() => {});
 </script>
 
 <style lang="less" scoped>
-.el-tree{
+.el-tree {
   text-align: left;
 }
 .wt100 {

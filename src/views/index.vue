@@ -41,7 +41,7 @@
   import B from "../components/B.vue";
   import HelloWorld from "../components/HelloWorld.vue";
   import readerDom from "./App";
-  import vMove from "../u";
+  import {vMove} from "../u";
   // Pinia
   import { useTestStore, userStoreBase } from "../store";
   import { storeToRefs } from "pinia";
