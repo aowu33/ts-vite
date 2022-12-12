@@ -8,6 +8,7 @@
     node-key="id"
     default-expand-all
   >
+  <!--  -->
     <template #default="{ node, data }">
       <div class="custom-tree-node" slot-scope="{ node, data }">
         <div class="wt100" @click="strLength(node.label)" :title="node.label">
@@ -33,12 +34,16 @@ const data: Tree[] = [
     label: "哈哈哈",
     children: [
       {
-        id: "0",
-        label: "哈哈哈哈哈哈哈哈哈哈",
+        id: "1",
+        label: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
         children: [
           {
-            id: "0",
+            id: "2",
             label: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
+          },
+          {
+            id: "3",
+            label: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
           },
         ],
       },
@@ -60,7 +65,7 @@ function key() {
   input.value.focus();
 }
 const handleNodeClick = (node: any) => {
-  nodeKey = ref(String(node.id));
+  nodeKey = ref('3');
 };
 function strLength(str: any) {
   let len = 0;
@@ -72,14 +77,16 @@ function strLength(str: any) {
       len += 2;
     }
   }
-  console.log(len);
-
+  console.log('长度:',len);
   return len;
 }
 onMounted(() => {});
 </script>
 
-<style>
+<style lang="less" scoped>
+.el-tree{
+  text-align: left;
+}
 .wt100 {
   width: 200px !important;
   height: 100%;
