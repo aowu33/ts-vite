@@ -8,28 +8,28 @@ const routes:Array<RouteRecordRaw> = [
 		path: "",
 		name: nameMaps.Equipment,
 		component: () => import("../views/index.vue"),
-		beforeEnter:(to,from,next)=>{
-			ElMessageBox.prompt("你觉得田小薇是个虎逼吗？","系统提示",{
-				confirmButtonText:"没错",
-				cancelButtonText:"是的",
-				type:"warning",
-				inputPlaceholder:"请输入田小薇是虎逼",
-				beforeClose:(action, instance, done)=>{
-						if(action === "cancel" && instance.inputValue != "田小薇是虎逼"){
-							instance.inputPlaceholder = "请输入 田小薇是虎逼"
-							instance.autofocus = true;
-							return false;
-						}else if(action === "confirm" && instance.inputValue != "田小薇是虎逼"){
-							instance.inputErrorMessage = "请输入 田小薇是虎逼"
-							instance.autofocus = true;
-							return false;
-						}else{
-							done()
-							next();
-						}
-				}
-			})	
-        }
+		// beforeEnter:(to,from,next)=>{
+		// 	ElMessageBox.prompt("你觉得田小薇是个虎逼吗？","系统提示",{
+		// 		confirmButtonText:"没错",
+		// 		cancelButtonText:"是的",
+		// 		type:"warning",
+		// 		inputPlaceholder:"请输入田小薇是虎逼",
+		// 		beforeClose:(action, instance, done)=>{
+		// 				if(action === "cancel" && instance.inputValue != "田小薇是虎逼"){
+		// 					instance.inputPlaceholder = "请输入 田小薇是虎逼"
+		// 					instance.autofocus = true;
+		// 					return false;
+		// 				}else if(action === "confirm" && instance.inputValue != "田小薇是虎逼"){
+		// 					instance.inputErrorMessage = "请输入 田小薇是虎逼"
+		// 					instance.autofocus = true;
+		// 					return false;
+		// 				}else{
+		// 					done()
+		// 					next();
+		// 				}
+		// 		}
+		// 	})	
+    //     }
 	},
 	{
 		path: "/equipmentTree",

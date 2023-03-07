@@ -21,8 +21,8 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import {useRouter, useRoute} from "vue-router";
-const router = useRouter()
-const route = useRoute()
+// const router = useRouter()
+// const route = useRoute()
 const isCollapse = ref(false);
 const menuData: Array<any> = [
   {
